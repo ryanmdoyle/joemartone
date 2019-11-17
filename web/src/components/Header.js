@@ -15,7 +15,6 @@ const headerStyles = css`
 
 const Header = ({ siteTitle }) => {
   const [screenWidth, setScreenWidth] = useState(0);
-  const [menuActive, toggleMenu] = useState(false);
 
   useEffect(() => {
     window.addEventListener('resize', () => { setScreenWidth(window.innerWidth) })
@@ -24,9 +23,6 @@ const Header = ({ siteTitle }) => {
 
   return (
     <header css={headerStyles}>
-      <div onClick={() => { toggleMenu(!menuActive) }}>
-        <Hamburger active={menuActive} />
-      </div>
       <img css={css`height: 200px; margin: 0;`} src='http://static1.squarespace.com/static/51a61f4be4b03e3c0127d234/t/55064988e4b0f9921cd75244/1572117101826/?format=1500w' alt='Joe Martone logo' />
     </header>
   )

@@ -41,7 +41,7 @@ const styledLinks = css`
     color: white;
     transition: color 0.15s; 
   }
- `;
+`;
 
 const SocialLinks = () => {
   return (
