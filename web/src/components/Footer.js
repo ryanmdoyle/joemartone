@@ -19,12 +19,12 @@ const footerStyles = css`
 const Footer = ({ siteTitle }) => {
   const [screenWidth, setScreenWidth] = useState(0);
   useEffect(() => {
-    window.addEventListener('resize', () => {setScreenWidth(window.innerWidth)})
+    window.addEventListener('resize', () => { setScreenWidth(window.innerWidth) })
   })
-  
+
   return (
     <footer css={footerStyles}>
-      <h2>I'm in the footer</h2>
+      <h3>social media shit here</h3>
     </footer>
   )
 }
