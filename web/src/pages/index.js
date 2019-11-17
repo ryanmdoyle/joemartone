@@ -2,7 +2,6 @@ import React from "react"
 import { css } from '@emotion/core';
 
 import Layout from "../components/Layout"
-import Image from "../components/Image"
 import SEO from "../components/SEO"
 import background from "../images/JoeMartone-50.jpg";
 

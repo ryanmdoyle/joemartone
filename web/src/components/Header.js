@@ -1,7 +1,8 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useState, useEffect, useLayoutEffect } from "react"
+import React, { useState, useEffect } from "react"
 import { css } from '@emotion/core';
+
+import Hamburger from './Hamburger';
 
 const headerStyles = css`
   background-color:rgba(0, 0, 0, 0);
@@ -14,6 +15,8 @@ const headerStyles = css`
 
 const Header = ({ siteTitle }) => {
   const [screenWidth, setScreenWidth] = useState(0);
+  const [menuActive, toggleMenu] = useState(false);
+
   useEffect(() => {
     window.addEventListener('resize', () => { setScreenWidth(window.innerWidth) })
     console.log(screenWidth);
@@ -21,7 +24,10 @@ const Header = ({ siteTitle }) => {
 
   return (
     <header css={headerStyles}>
-      <img css={css`height: 100px;`} src='http://static1.squarespace.com/static/51a61f4be4b03e3c0127d234/t/55064988e4b0f9921cd75244/1572117101826/?format=1500w' />
+      <div onClick={() => { toggleMenu(!menuActive) }}>
+        <Hamburger active={menuActive} />
+      </div>
+      <img css={css`height: 200px; margin: 0;`} src='http://static1.squarespace.com/static/51a61f4be4b03e3c0127d234/t/55064988e4b0f9921cd75244/1572117101826/?format=1500w' alt='Joe Martone logo' />
     </header>
   )
 }

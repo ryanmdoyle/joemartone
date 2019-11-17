@@ -25,7 +25,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Raleway']
+          families: ['Raleway:500,Lato:400']
         }
       }
     },
