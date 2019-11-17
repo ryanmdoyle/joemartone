@@ -12,7 +12,7 @@ const footerStyles = css`
   align-items: center;
   justify-content: center;
   position: absolute;
-  bottom: 0;
+  top: calc(100vh - 60px);
   left: 0;
   color: white;
 `;
