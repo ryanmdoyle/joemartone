@@ -2,8 +2,6 @@ import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
 import { css } from '@emotion/core';
 
-import Hamburger from './Hamburger';
-
 const headerStyles = css`
   background-color:rgba(0, 0, 0, 0);
   width: 100%;

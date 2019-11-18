@@ -19,11 +19,7 @@ const indexStyles = css`
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <div css={indexStyles}>
-      {/* <Image /> */}
-      {/* just make the main image a background image */}
-    </div>
-
+    <div css={indexStyles}></div>
   </Layout>
 )
 

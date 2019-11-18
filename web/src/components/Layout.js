@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { css } from '@emotion/core';
 
 import Header from "./Header";
 import Footer from './Footer';
@@ -29,7 +30,9 @@ const Layout = ({ children }) => {
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <HamburgerMenu />
-      <main>{children}</main>
+      <main css={css`max-width:1000px;margin: 2rem auto;`}>
+        {children}
+      </main>
       <Footer />
     </>
   )
