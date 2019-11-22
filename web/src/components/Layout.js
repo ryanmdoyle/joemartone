@@ -15,7 +15,7 @@ import Footer from './Footer';
 import "../styles/layout.css";
 import HamburgerMenu from "./HamburgerMenu";
 
-const Layout = ({ children }) => {
+const Layout = ({children, location}) => {
   
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -26,15 +26,27 @@ const Layout = ({ children }) => {
       }
     }
   `)
-  
+
+  const mainStyles = css`
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 50px;
+  `;
+
+  const footerOnIndex = css`
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  `;
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      { (location.pathname === '/') ? <Header siteTitle={data.site.siteMetadata.title}/> : <Header siteTitle={data.site.siteMetadata.title} css={css`background-color: black;`}/> }
       <HamburgerMenu />
-      <main css={css`max-width:1000px;margin: 2rem auto;`}>
+      <main css={mainStyles}>
         {children}
       </main>
-      <Footer />
+      { (location.pathname ==='/') ? <Footer css={footerOnIndex} /> : <Footer /> }
     </>
   )
 }

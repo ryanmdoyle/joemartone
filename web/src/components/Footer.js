@@ -11,13 +11,10 @@ const footerStyles = css`
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: calc(100vh - 60px);
-  left: 0;
   color: white;
 `;
 
-const Footer = ({ siteTitle }) => {
+const Footer = (props) => {
   const [screenWidth, setScreenWidth] = useState(0);
   useEffect(() => {
     window.addEventListener('resize', () => { setScreenWidth(window.innerWidth) })
@@ -25,7 +22,7 @@ const Footer = ({ siteTitle }) => {
   })
 
   return (
-    <footer css={footerStyles}>
+    <footer css={footerStyles} {...props}>
       <SocialLinks />
     </footer>
   )

@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/core';
+import { Link } from 'gatsby';
 
 const listStylesActive = css`
   width: 100%;
@@ -36,7 +37,7 @@ const BurgerNavList = ({ active }) => {
       <ul css={listStyles}>
         <li>Bio</li>
         <li>Resume</li>
-        <li>Instruments</li>
+        <Link to='instruments'><li>Instruments</li></Link>
         <li>Lessons</li>
         <li>Media</li>
         <li>Contracting</li>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Hamburger from './Hamburger';
 import { css } from '@emotion/core';
+import { Link } from 'gatsby';
 
 import BurgerNavList from './BurgerNavList';
 
@@ -59,7 +60,7 @@ const HamburgerMenu = () => {
           <Hamburger active={menuActive} />
         </div>
         <div css={logoHolder}>
-          <img src='http://static1.squarespace.com/static/51a61f4be4b03e3c0127d234/t/55064988e4b0f9921cd75244/1572117101826/?format=1500w' alt='Joe Martone logo' />
+          <Link to='/'><img src='http://static1.squarespace.com/static/51a61f4be4b03e3c0127d234/t/55064988e4b0f9921cd75244/1572117101826/?format=1500w' alt='Joe Martone logo' /></Link>
         </div>
         <div css={css`padding-top: 50px;`}>
           <BurgerNavList active={menuActive} />

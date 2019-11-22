@@ -16,11 +16,12 @@ const indexStyles = css`
   width: 100%;
 `;
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <div css={indexStyles}></div>
-  </Layout>
-)
-
+const IndexPage = ({location}) => {
+  return (
+    <Layout location={location} >
+      <SEO title="Home" />
+      <div css={indexStyles}></div>
+    </Layout>
+  )
+}
 export default IndexPage

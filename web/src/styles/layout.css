@@ -656,3 +656,8 @@ h4 {font-size: 1.563em;}
 h5 {font-size: 1.25em;}
 
 small, .text_small {font-size: 0.8em;}
+
+a { 
+  color: white; 
+  text-decoration: none;
+}

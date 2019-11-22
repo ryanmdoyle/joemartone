@@ -2,9 +2,9 @@ import React from 'react';
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
 
-const instruments = () => {
+const instruments = ({location}) => {
   return (
-    <Layout>
+    <Layout location={location}>
       <PageTitle title={'Instruments'} />
       <h3>Concert Drums</h3>
       <h4>Bass Drums</h4>
