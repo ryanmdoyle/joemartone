@@ -7,14 +7,21 @@ import BurgerNavList from './BurgerNavList';
 const HamburgerMenu = () => {
   const [menuActive, toggleMenu] = useState(false);
 
+  // media query to hide buger via css
+  const burgerWrapper = css`
+    @media (min-width: 800px) {
+      display: none;
+    }
+  `
+
   const burgerMenu = css`
     position: absolute;
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.95);
-    width: 100vw;
-    height: 100vh;
-    transition: height 1s;
+    width: 100%;
+    height: 100%;
+    transition: height 0.5s;
   `;
 
   const burgerMenuHidden = css`
@@ -22,11 +29,11 @@ const HamburgerMenu = () => {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.95);
-    width: 100vw;
-    height: 0vh;
+    width: 100%;
+    height: 0%;
     display: hidden;
     overflow: hidden;
-    transition: height 1s;
+    transition: height 0.5s;
   `;
 
   const logoHolder = css`
@@ -42,7 +49,7 @@ const HamburgerMenu = () => {
   `;
 
   return (
-    <div>
+    <div css={burgerWrapper}>
       <div onClick={() => { toggleMenu(!menuActive) }}>
         <Hamburger active={menuActive} />
       </div>
