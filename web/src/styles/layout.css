@@ -661,3 +661,8 @@ a {
   color: white; 
   text-decoration: none;
 }
+
+/* CUSTOM PROPERTIES */
+:root {
+  --headerHeight: 100px;
+}
