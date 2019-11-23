@@ -37,7 +37,7 @@ const BurgerNavList = ({ active }) => {
       <ul css={listStyles}>
         <li>Bio</li>
         <li>Resume</li>
-        <Link to='instruments'><li>Instruments</li></Link>
+        <Link to='/instruments'><li>Instruments</li></Link>
         <li>Lessons</li>
         <li>Media</li>
         <li>Contracting</li>

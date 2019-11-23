@@ -1,16 +1,38 @@
-import PropTypes from "prop-types"
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { css } from '@emotion/core';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 const headerStyles = css`
   width: 100%;
   height: 100px;
   display: flex;
+  /* flex-wrap: wrap; */
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  /* flex-direction: column; */
+  #logo {
+    width: 100%;
+    order: 1
+  }
+  #links1 {
+    order: 2;
+    background-color: green;
+    flex-grow: 1;
+  }
+  #links2 {
+    order: 3;
+    background-color: red;
+    flex-grow: 1;
+  }
+  @media (min-width: 1000px){
+    #logo { 
+      order: 2;
+      width: 300px;
+    }
+    #links1 {order: 1;}
+    #links2 {order: 3;}
+  }
 `;
 
 // this is also in BurgerNavList, move to external if ok
@@ -31,37 +53,33 @@ const listStyles = css`
 `;
 
 const Header = (props) => {
-  const [screenWidth, setScreenWidth] = useState(0);
-  
-  useEffect(() => {
-    window.addEventListener('resize', () => { setScreenWidth(window.innerWidth) })
-    console.log(screenWidth);
-  })
-  
+  const { file: { childImageSharp: { fixed } } } = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "JoeMartoneLogo.png"}) {
+        childImageSharp {
+          fixed(height: 80) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+  `)
+
+  console.log('logo query', fixed);
   return (
     <header css={headerStyles} {...props} >
-      {/* <ul css={listStyles} >
-      <Link to='/'><li>Bio</li></Link>
-      <Link to='/'><li>Resume</li></Link>
-      <Link to='/'><li>Instruments</li></Link>
-      </ul> */}
-      <Link to='/'><img css={css`height: 200px; margin: 0;`} src='http://static1.squarespace.com/static/51a61f4be4b03e3c0127d234/t/55064988e4b0f9921cd75244/1572117101826/?format=1500w' alt='Joe Martone logo' /></ Link>
-      {/* <ul css={listStyles} >
-      <Link to='/'><li>Lessons</li></Link>
-      <Link to='/'><li>Media</li></Link>
-      <Link to='/'><li>Contracting</li></Link>
-      <Link to='/'><li>Contact</li></Link>
-      </ul> */}
-    </header>
+      <div id='logo'>
+        <Link to='/'>
+          <Img fixed={fixed} style={{ margin: 'auto', display: 'flex' }} />
+        </ Link>
+      </div>
+
+      <div id='links1'>links</div>
+
+      <div id='links2'>links 2</div>
+
+    </header >
   )
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
+};
 
 export default Header

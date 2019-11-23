@@ -7,7 +7,6 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import { css } from '@emotion/core';
 
 import Header from "./Header";
@@ -15,17 +14,7 @@ import Footer from './Footer';
 import "../styles/layout.css";
 import HamburgerMenu from "./HamburgerMenu";
 
-const Layout = ({children, location}) => {
-  
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+const Layout = ({ children, location }) => {
 
   const mainStyles = css`
     max-width: 1000px;
@@ -41,12 +30,12 @@ const Layout = ({children, location}) => {
 
   return (
     <>
-      { (location.pathname === '/') ? <Header siteTitle={data.site.siteMetadata.title}/> : <Header siteTitle={data.site.siteMetadata.title} css={css`background-color: black;`}/> }
+      {(location.pathname === '/') ? <Header /> : <Header css={css`background-color: black;`} />}
       <HamburgerMenu />
       <main css={mainStyles}>
         {children}
       </main>
-      { (location.pathname ==='/') ? <Footer css={footerOnIndex} /> : <Footer /> }
+      {(location.pathname === '/') ? <Footer css={footerOnIndex} /> : <Footer />}
     </>
   )
 }
