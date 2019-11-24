@@ -3,77 +3,63 @@ import { css } from '@emotion/core';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-import NavRow from './NavRow';
-
 const headerStyles = css`
-  width: 100%;
   height: calc(var(--headerHeight) + 50px);
+  width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  #logo {
+  flex-direction: column;
+  #headerUpper {
     width: 100%;
-    height: 50%;
-    order: 1
-  }
-  #links1 {
-    order: 2;
-    flex-grow: 1;
-    height: 40px;
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: right;
-  }
-  #links2 {
-    order: 3;
-    flex-grow: 1;
-    height: 40px;
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: left;
-  }
-  /* Large Screens */
-  @media (min-width: 1100px){
     height: var(--headerHeight);
-    flex-wrap: nowrap;
-    #logo { 
-      order: 2;
-      width: 300px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #links1 {
-      order: 1;
-      height: var(--headerHeight);
-      justify-content: center;
-    }
-    #links2 {
-      order: 3;
-      height: var(--headerHeight);
-      justify-content: center;
-    }
+    display: flex;
+    flex-direction: row;
   }
-  /* Small Mobile */
-  @media (max-width: 800px) {
+  #headerLower {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #logo, #leftNav, #rightNav {
     height: var(--headerHeight);
-    #logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #logo {
+    width: 250px;
+  }
+  #leftNav, #rightNav {
+    width: calc(50% - 125px);
+    visibility: hidden;
+  }
+  #leftNav > ul, #rightNav > ul {
+      display: none;
     }
-    #links1, #links2 {
+  /* WIDE NAV */
+  @media (min-width: 1250px) {
+    height: var(--headerHeight);
+    #headerLower { display: none; }
+    #leftNav, #rightNav { visibility: visible; }
+    #leftNav > ul, #rightNav > ul {
+      display: flex;
+    }
+    #leftNav { justify-content: end }
+    #rightNav { justify-content: start }
+  }
+  /* MOBILE/BURGER NAV */
+  @media (max-width: 900px) {
+    height: var(--headerHeight);
+    #headerLower { display: none; }
+    #leftNav, #rightNav { visibility: hidden; }
+    #leftNav > ul, #rightNav > ul {
       display: none;
     }
   }
 `;
 
-// this is also in BurgerNavList, move to external if ok
-const listStyles = css`
+const navListStyles = css`
   list-style: none;
   margin: 0;
   display: flex;
@@ -82,10 +68,11 @@ const listStyles = css`
   justify-content: center;
   li {
     font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
     text-align: center;
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
     margin: 0 1rem;
   }
@@ -104,41 +91,48 @@ const Header = (props) => {
     }
   `)
 
-  console.log('logo query', fixed);
   return (
     <header css={headerStyles} {...props} >
-      <div id='logo'>
-        <Link to='/'>
-          <Img
-            fixed={fixed}
-            style={{ margin: 'auto', display: 'flex' }}
-          />
-        </ Link>
+      <div id='headerUpper'>
+        <div id='leftNav'>
+          <ul css={navListStyles}>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/bio'>Bio</Link></li>
+            <li><Link to='/resume'>Resume</Link></li>
+            <li><Link to='/instruments'>Instruments</Link></li>
+          </ul>
+        </div>
+        <div id='logo'>
+          <Link to='/'>
+            <Img
+              fixed={fixed}
+              style={{ margin: 'auto', display: 'flex' }}
+            />
+          </ Link>
+        </div>
+        <div id='rightNav'>
+          <ul css={navListStyles}>
+            <li><Link to='/lessons'>Lessons</Link></li>
+            <li><Link to='/media'>Media</Link></li>
+            <li><Link to='/contracting'>Contracting</Link></li>
+            <li><Link to='/contact'>Contact</Link></li>
+          </ul>
+        </div>
       </div>
-
-      <div id='links1'>
-        <ul css={listStyles} >
-          <li>Home</li>
-          <li>Bio</li>
-          <li>Resume</li>
-          <li>Instruments</li>
-        </ul>
+      <div id='headerLower'>
+        <div id='wideNav'>
+          <ul css={navListStyles}>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/bio'>Bio</Link></li>
+            <li><Link to='/resume'>Resume</Link></li>
+            <li><Link to='/instruments'>Instruments</Link></li>
+            <li><Link to='/lessons'>Lessons</Link></li>
+            <li><Link to='/media'>Media</Link></li>
+            <li><Link to='/contracting'>Contracting</Link></li>
+            <li><Link to='/contact'>Contact</Link></li>
+          </ul>
+        </div>
       </div>
-
-      <div id='links2'>
-        <ul css={listStyles} >
-          <li>Lessons</li>
-          <li>Media</li>
-          <li>Contracting</li>
-          <li>Contact</li>
-        </ul>
-      </div>
-      {/* <NavRow>
-        <li>Lessons</li>
-        <li>Media</li>
-        <li>Contracting</li>
-        <li>Contact</li>
-      </NavRow> */}
     </header >
   )
 };

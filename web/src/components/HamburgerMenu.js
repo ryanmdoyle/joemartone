@@ -10,7 +10,7 @@ const HamburgerMenu = () => {
 
   // media query to hide buger via css
   const burgerWrapper = css`
-    @media (min-width: 800px) {
+    @media (min-width: 900px) {
       display: none;
     }
   `
@@ -42,7 +42,7 @@ const HamburgerMenu = () => {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100px;
+    height: var(--headerHeight);
     img {
       height: 200px;
       margin: 0;

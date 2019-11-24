@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { css } from '@emotion/core';
@@ -28,6 +21,11 @@ const Layout = ({ children, location }) => {
     left: 0;
   `;
 
+  const fixedFooter = css`
+    position: fixed;
+    bottom: 0;
+  `;
+
   return (
     <>
       {(location.pathname === '/') ? <Header /> : <Header css={css`background-color: black;`} />}
@@ -35,7 +33,8 @@ const Layout = ({ children, location }) => {
       <main css={mainStyles}>
         {children}
       </main>
-      {(location.pathname === '/') ? <Footer css={footerOnIndex} /> : <Footer />}
+      {/* {(location.pathname === '/') ? <Footer css={footerOnIndex} /> : <Footer />} */}
+      <Footer css={fixedFooter} />
     </>
   )
 }
