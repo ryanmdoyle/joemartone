@@ -3,9 +3,9 @@ import React from 'react';
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
 
-const resume = ({ location }) => {
+const resume = () => {
   return (
-    <Layout location={location}>
+    <Layout>
       <PageTitle title='Resume' />
     </Layout>
   );

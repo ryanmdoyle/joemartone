@@ -28,7 +28,7 @@ const Layout = ({ children, location }) => {
 
   return (
     <>
-      {(location.pathname === '/') ? <Header /> : <Header css={css`background-color: black;`} />}
+      {(location === '/') ? <Header /> : <Header css={css`background-color: black;`} />}
       <HamburgerMenu />
       <main css={mainStyles}>
         {children}

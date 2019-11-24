@@ -4,9 +4,9 @@ import PageTitle from '../components/PageTitle';
 
 import pageListStyles from '../styles/pageListStyles';
 
-const instruments = ({ location }) => {
+const instruments = () => {
   return (
-    <Layout location={location}>
+    <Layout>
       <PageTitle title={'Instruments'} />
       <h3>Concert Drums</h3>
       <div css={pageListStyles}>
