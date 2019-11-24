@@ -35,13 +35,14 @@ const BurgerNavList = ({ active }) => {
   return (
     <div css={active ? listStylesActive : listStylesHidden}>
       <ul css={listStyles}>
-        <li>Bio</li>
-        <li>Resume</li>
-        <Link to='/instruments'><li>Instruments</li></Link>
-        <li>Lessons</li>
-        <li>Media</li>
-        <li>Contracting</li>
-        <li>Contact</li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/bio'>Bio</Link></li>
+        <li><Link to='/resume'>Resume</Link></li>
+        <li><Link to='/instruments'>Instruments</Link></li>
+        <li><Link to='/lessons'>Lessons</Link></li>
+        <li><Link to='/media'>Media</Link></li>
+        <li><Link to='/contracting'>Contracting</Link></li>
+        <li><Link to='/contact'>Contact</Link></li>
       </ul>
     </div>
   );
