@@ -45,7 +45,7 @@ const headerStyles = css`
     #leftNav > ul, #rightNav > ul {
       display: flex;
     }
-    #leftNav { justify-content: end }
+    #leftNav { justify-content: flex-end }
     #rightNav { justify-content: start }
   }
   /* MOBILE/BURGER NAV */

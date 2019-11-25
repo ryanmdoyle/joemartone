@@ -18,6 +18,7 @@ const iframeStyles = css`
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: -1;
 `;
 
 const captionStyle = css`
@@ -33,7 +34,7 @@ const YoutubeVideo = ({ videoId, caption }) => {
   return (
     <div css={videoWithCaption}>
       <div css={videoContainer}>
-        <iframe css={iframeStyles} src={`https://www.youtube.com/embed/${videoId}`} frameBorder='0'>
+        <iframe css={iframeStyles} src={`https://www.youtube.com/embed/${videoId}`} frameBorder='0' title={`Youtube video:${videoId}`}>
         </iframe>
       </div>
       <p css={captionStyle}>{caption}</p>

@@ -15,6 +15,13 @@ const trackCurrentContainer = css`
   width: 100%;
   height: 100px;
   display: flex;
+  .buttonContainer {
+    @media (max-width: 450px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 `;
 
 const currentTrackDetails = css`
@@ -30,6 +37,18 @@ const currentTrackDetails = css`
     background-color: black;
     height: 10px;
   }
+  @media (max-width: 700px) {
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+  @media (max-width: 450px) {
+    h3 {
+      font-size: 1.1rem;
+    }
+    width: calc(100% - 60px);
+    padding-left: 1rem;
+  }
 `;
 
 const playButton = css`
@@ -41,10 +60,14 @@ const playButton = css`
   text-decoration: none;
   display: inline-block;
   padding: 2rem;
+  @media (max-width: 450px) {
+    width: 60px;
+    height: 60px;
+    padding: 1rem;
+  }
 `;
 
 const trackList = css`
-  height: 300px;
   padding: 2rem 0;
   ul {
     list-style: none;
@@ -70,7 +93,7 @@ const AudioPlayer = withCustomAudio(props => {
     <div css={playerStyles}>
       {/* Player Button and Details of Current Track */}
       <div css={trackCurrentContainer}>
-        <div css={css`width: 100px;`}>
+        <div className='buttonContainer'>
           <PlayButton css={playButton} className='button' {...props} />
         </div>
         <div css={currentTrackDetails}>

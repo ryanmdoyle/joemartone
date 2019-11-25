@@ -13,13 +13,7 @@ const Layout = ({ children, location }) => {
     max-width: 1000px;
     margin: 2rem auto;
     padding: 0 50px;
-    padding-bottom: 100px;
-  `;
-
-  const footerOnIndex = css`
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    padding-bottom: 125px;
   `;
 
   const fixedFooter = css`
