@@ -53,8 +53,7 @@ const HamburgerMenu = () => {
     <div css={burgerWrapper}>
       <div onClick={() => { toggleMenu(!menuActive) }}>
         <Hamburger active={menuActive} />
-      </div>
-      {/* {menuActive && ( */}
+      </div>  
       <div css={menuActive ? burgerMenu : burgerMenuHidden}>
         <div onClick={() => { toggleMenu(!menuActive) }}>
           <Hamburger active={menuActive} />
@@ -66,9 +65,8 @@ const HamburgerMenu = () => {
           <BurgerNavList active={menuActive} />
         </div>
       </div>
-      {/* )} */}
     </div>
   );
 };
-
+  
 export default HamburgerMenu;
