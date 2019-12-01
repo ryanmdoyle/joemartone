@@ -1,17 +1,17 @@
 export default {
-  title: 'Audio',
-  name: 'audio',
+  title: 'File',
+  name: 'customFile',
   type: 'file',
   fields: [
     {
+      title: 'Description',
       name: 'description',
       type: 'string',
-      title: 'Description',
     },
     {
+      title: 'Author',
       name: 'author',
       type: 'string',
-      title: 'Author',
     }
   ]
 }

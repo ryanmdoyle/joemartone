@@ -1,22 +1,22 @@
 export default {
-  title: 'Resume Category',
-  name: 'resumeCategory',
+  title: 'Resume Categories',
+  name: 'resumeCategories',
   type: 'document',
   fields: [
     {
-      title: 'Resume Category Title',
-      name: 'resumeCategoryTitle',
+      title: 'Resume Category',
+      name: 'resumeCategory',
       type: 'string'
     },
     {
-      title: 'Resume Items',
-      name: 'resumeItems',
+      title: 'Resume Items in Category',
+      name: 'resumeCategoryItems',
       type: 'array',
       of: [
         {
           type: 'reference',
           to: [
-            {type: 'resumeItem'},
+            { type: 'resumeItems' },
           ]
         }
       ],
@@ -24,6 +24,6 @@ export default {
         editModal: 'fullscreen',
         sortable: false,
       }
-    }
+    },
   ]
 }

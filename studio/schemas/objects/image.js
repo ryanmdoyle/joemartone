@@ -1,6 +1,6 @@
 export default {
-  title: 'Photo',
-  name: 'photo',
+  title: 'Image',
+  name: 'customImage',
   type: 'image',
   options: {
     hotspot: true // <-- Defaults to false

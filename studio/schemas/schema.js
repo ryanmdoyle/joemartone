@@ -5,14 +5,20 @@ import createSchema from 'part:@sanity/base/schema-creator'
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // Custom Documents
-import resume from './documents/resumeCategory';
-import resumeItem from './documents/resumeItem';
+import resumeCategories from './documents/resumeCategories';
+import resumeItems from './documents/resumeItems';
 import media from './documents/media';
+import audio from './documents/audio';
+import photo from './documents/photo';
+import videos from './documents/videos';
+import instrumentCategories from './documents/instrumentCategories';
+import biography from './documents/biography';
+import lessons from './documents/lessons';
+import contracting from './documents/contracting';
 
-// Custom Objects
-import audio from './objects/audio';
-import photo from './objects/photo';
-import video from './objects/video';
+import richText from './objects/richText';
+import contract from './objects/contract';
+import customFile from './objects/customFile';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -22,11 +28,18 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
-    resume,
-    resumeItem,
+    resumeCategories,
+    resumeItems,
     media,
     audio,
     photo,
-    video,
+    videos,
+    instrumentCategories,
+    richText,
+    biography,
+    lessons,
+    contracting,
+    contract,
+    customFile,
   ])
 })
