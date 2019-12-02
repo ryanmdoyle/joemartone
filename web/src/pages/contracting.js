@@ -3,7 +3,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
 
-const contracting = () => {
+const Contracting = () => {
   return (
     <Layout>
       <PageTitle title='Contracting' />
@@ -11,4 +11,4 @@ const contracting = () => {
   );
 };
 
-export default contracting;
+export default Contracting;

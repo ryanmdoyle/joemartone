@@ -4,7 +4,7 @@ import PageTitle from '../components/PageTitle';
 
 import pageListStyles from '../styles/pageListStyles';
 
-const instruments = () => {
+const Instruments = () => {
   return (
     <Layout>
       <PageTitle title={'Instruments'} />
@@ -43,5 +43,5 @@ const instruments = () => {
   );
 };
 
-export default instruments;
+export default Instruments;
 

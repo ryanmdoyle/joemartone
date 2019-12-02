@@ -8,7 +8,7 @@ import AudioPlayer from '../components/AudioPlayer';
 // audio source
 import streamUrl from '../audio/oddity.mp3';
 
-const media = () => {
+const Media = () => {
   return (
     <Layout>
       <PageTitle title='Media' />
@@ -18,4 +18,4 @@ const media = () => {
   );
 };
 
-export default media;
+export default Media;

@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
 import ContactForm from '../components/ContactForm';
 
-const contact = () => {
+const Contact = () => {
   return (
     <Layout>
       <PageTitle title='Contact' />
@@ -13,4 +13,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;
