@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // Custom Documents
 import resumeCategories from './documents/resumeCategories';
 import resumeItems from './documents/resumeItems';
+import resume from './documents/resume';
 import media from './documents/media';
 import audio from './documents/audio';
 import photo from './documents/photo';
@@ -30,6 +31,7 @@ export default createSchema({
     /* Your types here! */
     resumeCategories,
     resumeItems,
+    resume,
     media,
     audio,
     photo,

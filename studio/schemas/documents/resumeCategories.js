@@ -22,7 +22,6 @@ export default {
       ],
       options: {
         editModal: 'fullscreen',
-        sortable: false,
       }
     },
   ]

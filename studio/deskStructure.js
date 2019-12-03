@@ -7,6 +7,7 @@ import { MdVideoLibrary } from 'react-icons/md';
 // filters the 'settings' document from the method that spreads out/returns all the other doc types
 const hiddenDocTypes = listItem => ![
   'resumeCategories',
+  'resume',
   'instrumentCategories',
   'media',
   'biography',
@@ -20,6 +21,16 @@ export default () =>
     .items([
       S.listItem()
         .title('Resume')
+        .child(
+          S.editor()
+            .title('Resume Page')
+            .id('resume')
+            .schemaType('resume')
+            .documentId('resume-config')
+        )
+        .icon(IoIosDocument),
+      S.listItem()
+        .title('Resume Categories')
         .child(
           S.documentTypeList('resumeCategories')
         )
