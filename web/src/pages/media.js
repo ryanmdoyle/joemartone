@@ -43,6 +43,7 @@ const Media = () => {
               ... on SanityVideos {
                 id
                 video
+                videoId
                 videoCaption
               }
             }
@@ -61,7 +62,7 @@ const Media = () => {
         {videos.map(video => (
           <div className='video' key={video.id}>
             {/* FIX LINK BELOW (currently uses link, needs to use id) */}
-            <YoutubeVideo videoId={video.video} />
+            <YoutubeVideo videoId={video.videoId} caption={video.videoCaption} />
           </div>
         ))}
       </div>
