@@ -16,40 +16,42 @@ const listStyles = css`
 
 const Resume = () => {
   const resumeData = useStaticQuery(graphql`
-    query MyQuery {
-      allSanityResumeCategories {
+    query allResume {
+      allSanityResume {
         edges {
           node {
-            resumeCategoryItems {
+            categoryOrder {
               id
-              _id
-              resumeItem
-              resumeItemDescription
-              resumeItemLink
+              resumeCategory
+              resumeCategoryItems {
+                resumeItem
+                resumeItemDescription
+                resumeItemLink
+                id
+              }
             }
-            resumeCategory
           }
         }
       }
     }
   `)
-  const categories = resumeData.allSanityResumeCategories.edges;
-
+  const categories = resumeData.allSanityResume.edges[0].node.categoryOrder;
+  console.log(categories);
   return (
     <Layout>
       <PageTitle title='Resume' />
       {categories.map(category => (
-        <>
-          <h3>{category.node.resumeCategory}</h3>
-          <ul css={listStyles}>{category.node.resumeCategoryItems.map(item => (
-            <li>
+        <div key={category.id}>
+          <h3>{category.resumeCategory}</h3>
+          <ul css={listStyles}>{category.resumeCategoryItems.map(item => (
+            <li key={item.id}>
               <a href={item.resumeItemLink}>
                 {item.resumeItem}
               </a>
               {` - ${item.resumeItemDescription}`}
             </li>
           ))}</ul>
-        </>
+        </div>
       ))}
     </Layout>
   );
