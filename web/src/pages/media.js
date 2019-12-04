@@ -46,6 +46,16 @@ const Media = () => {
                 videoId
                 videoCaption
               }
+              ... on SanityAudio {
+                id
+                audioFile {
+                  asset {
+                    url
+                  }
+                }
+                audioTitle
+                audioDescription
+              }
             }
           }
         }
@@ -53,11 +63,13 @@ const Media = () => {
     }
   `);
   const videos = mediaQuery.allSanityMedia.edges[1].node.mediaList;
-  console.log(videos);
+  const audio = mediaQuery.allSanityMedia.edges[2].node.mediaList;
+  console.log(audio)
 
   return (
     <Layout>
       <PageTitle title='Media' />
+      <h3>Video</h3>
       <div css={videoGallery}>
         {videos.map(video => (
           <div className='video' key={video.id}>
@@ -66,6 +78,7 @@ const Media = () => {
           </div>
         ))}
       </div>
+      <h3>Audio</h3>
       <AudioPlayer streamUrl={streamUrl} trackTitle='The track title and a longer title' preloadType='auto' />
     </Layout>
   );

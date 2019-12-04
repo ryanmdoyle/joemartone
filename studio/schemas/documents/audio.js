@@ -14,6 +14,11 @@ export default {
       type: 'string',
     },
     {
+      title: 'Composer',
+      name: 'audioComposer',
+      type: 'string',
+    },
+    {
       title: 'Audio file',
       name: 'audioFile',
       type: 'file',
