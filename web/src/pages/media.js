@@ -64,7 +64,6 @@ const Media = () => {
   `);
   const videos = mediaQuery.allSanityMedia.edges[1].node.mediaList;
   const audio = mediaQuery.allSanityMedia.edges[2].node.mediaList;
-  console.log(audio)
 
   return (
     <Layout>
@@ -79,7 +78,11 @@ const Media = () => {
         ))}
       </div>
       <h3>Audio</h3>
-      <AudioPlayer streamUrl={streamUrl} trackTitle='The track title and a longer title' preloadType='auto' />
+      <AudioPlayer
+        audioFiles={audio}
+        streamUrl={streamUrl}
+        trackTitle='The track title and a longer title'
+        preloadType='auto' />
     </Layout>
   );
 };
