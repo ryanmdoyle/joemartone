@@ -5,10 +5,10 @@ import { useStaticQuery, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
 import YoutubeVideo from '../components/YoutubeVideo';
-import AudioPlayer from '../components/AudioPlayer';
+import AudioPlayer from '../components/AudioPlayer/AudioPlayer';
 
 // audio source
-import streamUrl from '../audio/oddity.mp3';
+// import streamUrl from '../audio/oddity.mp3';
 
 const videoGallery = css`
   display: flex;
@@ -78,11 +78,7 @@ const Media = () => {
         ))}
       </div>
       <h3>Audio</h3>
-      <AudioPlayer
-        audioFiles={audio}
-        streamUrl={streamUrl}
-        trackTitle='The track title and a longer title'
-        preloadType='auto' />
+      <AudioPlayer audioData={audio} />
     </Layout>
   );
 };
