@@ -23,6 +23,7 @@ const HamburgerMenu = () => {
     width: 100%;
     height: 100%;
     transition: height 0.5s;
+    z-index: 1;
   `;
 
   const burgerMenuHidden = css`
@@ -53,7 +54,7 @@ const HamburgerMenu = () => {
     <div css={burgerWrapper}>
       <div onClick={() => { toggleMenu(!menuActive) }}>
         <Hamburger active={menuActive} />
-      </div>  
+      </div>
       <div css={menuActive ? burgerMenu : burgerMenuHidden}>
         <div onClick={() => { toggleMenu(!menuActive) }}>
           <Hamburger active={menuActive} />
@@ -68,5 +69,5 @@ const HamburgerMenu = () => {
     </div>
   );
 };
-  
+
 export default HamburgerMenu;

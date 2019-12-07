@@ -12,14 +12,14 @@ const videoContainer = css`
   height: 0;
 `;
 
-const iframeStyles = css`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-`;
+const iframeStyles = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  // zIndex: -1,
+};
 
 const captionStyle = css`
   margin-top: 0.5rem;
@@ -31,11 +31,17 @@ const captionStyle = css`
 `;
 
 const YoutubeVideo = ({ videoId, caption }) => {
+  let iframeRef = React.createRef();
+
+  const triggeriFrame = () => {
+    console.log(iframeRef);
+    iframeRef.current.contentWindow.click();
+  }
+
   return (
     <div css={videoWithCaption}>
       <div css={videoContainer}>
-        <iframe css={iframeStyles} src={`https://www.youtube.com/embed/${videoId}`} frameBorder='0' title={`Youtube video:${videoId}`}>
-        </iframe>
+        <iframe style={iframeStyles} src={`https://www.youtube.com/embed/${videoId}`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <p css={captionStyle}>{caption}</p>
     </div>
