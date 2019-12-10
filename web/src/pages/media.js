@@ -71,15 +71,14 @@ const Media = () => {
   return (
     <Layout>
       <PageTitle title='Media' />
-      <h3>Video</h3>
+      {/* <h3>Video</h3>
       <div css={videoGallery}>
         {videos.map(video => (
           <div className='video' key={video.id}>
-            {/* FIX LINK BELOW (currently uses link, needs to use id) */}
             <YoutubeVideo videoId={video.videoId} caption={video.videoCaption} />
           </div>
         ))}
-      </div>
+      </div> */}
       <h3>Audio</h3>
       <AudioPlayer audioData={audio} />
     </Layout>

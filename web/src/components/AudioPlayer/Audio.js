@@ -9,27 +9,25 @@ class Audio extends React.Component {
     this.audioRef = React.createRef();
     this.playOrPause = this.playOrPause.bind(this);
     this.state = {
-      progress: 0,
+      progressValue: 0,
       length: 100,
     }
   }
 
   componentDidMount() {
     this.audioRef.current.load();
-    this.setState({
-      length: this.audioRef.current.duration,
-    })
-    console.log('component mounted and length is:', this.state.length)
+    console.log('component mounted');
+    const audioData = this.audioRef.current;
+    console.log(audioData)
   }
 
   componentDidUpdate() {
-    console.log('props', this.props)
-    console.log('audioRef', this.audioRef)
-    console.log('component updated and length is:', this.state.length)
+    console.log('updating')
   }
 
   componentWillUnmount() {
     this.audioRef.current.pause();
+    console.log('component unmount')
   }
 
   playOrPause() {
@@ -39,11 +37,11 @@ class Audio extends React.Component {
       this.audioRef.current.load();
       this.audioRef.current.play();
       this.audioRef.current.ontimeupdate = () => {
-        console.log(this.state.progress)
         this.setState({
-          progress: this.audioRef.current.currentTime,
+          progressValue: this.audioRef.current.currentTime,
         })
       }
+      console.log(this.audioRef.current.duration);
     };
   }
 
@@ -54,7 +52,7 @@ class Audio extends React.Component {
         <audio css={css`background-color: white; width: 100%;`} ref={this.audioRef}>
           <source src={`${this.props.audioSrc.asset.url}`} type={this.props.audioSrc.asset.mimeType}></source>
         </audio>
-        <progress min={1} max={100}></progress>
+        <progress value={this.state.progressValue} max={100}></progress>
       </div>
     );
   }
