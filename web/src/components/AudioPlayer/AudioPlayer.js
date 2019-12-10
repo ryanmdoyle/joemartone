@@ -4,6 +4,7 @@ import { playerStyles } from '../../styles/audioPlayer';
 import streamUrl from '../../audio/oddity.mp3';
 import AudioControls from './AudioControls';
 import AudioList from './AudioList';
+import Audio from './Audio';
 
 const AudioPlayer = ({ audioData }) => {
   const [currentTrack, setTrack] = useState({
@@ -20,19 +21,13 @@ const AudioPlayer = ({ audioData }) => {
   return (
     <div css={playerStyles}>
       <AudioControls
-        streamUrl='https://cdn.sanity.io/files/k0o6yoq9/production/07f39c1e7231a8f24391fcca71c5eb571951d9a9.mp3'
+        // FIX
+        streamUrl={currentTrack.audioFile.asset.url}
         trackTitle={currentTrack.audioTitle}
         trackSubtitle={currentTrack.audioDescription}
         preloadType='auto'
       />
-      <audio>
-        <button
-          onClick={() => {
-            currentTrack.audioFile.asset.url.play();
-          }}
-        ></button>
-
-      </audio>
+      <Audio audioSrc={currentTrack.audioFile} />
       {/* List of Tracks */}
       <AudioList audioData={audioData} setTrack={setTrack} />
     </div >

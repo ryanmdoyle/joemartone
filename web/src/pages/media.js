@@ -26,7 +26,7 @@ const videoGallery = css`
       width: calc(100% / 2 - 20px);
       margin-left: 20px;
     }
-    .video:first-child, .video:nth-child(4) {
+    .video:first-of-type, .video:nth-of-type(4) {
       width: 100%;
     }
   }
@@ -51,10 +51,13 @@ const Media = () => {
                 audioFile {
                   asset {
                     url
+                    mimeType
+                    size
                   }
                 }
                 audioTitle
                 audioDescription
+                audioComposer
               }
             }
           }

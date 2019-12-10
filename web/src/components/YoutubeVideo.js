@@ -41,7 +41,7 @@ const YoutubeVideo = ({ videoId, caption }) => {
   return (
     <div css={videoWithCaption}>
       <div css={videoContainer}>
-        <iframe style={iframeStyles} src={`https://www.youtube.com/embed/${videoId}`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe style={iframeStyles} src={`https://www.youtube.com/embed/${videoId}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
       </div>
       <p css={captionStyle}>{caption}</p>
     </div>
