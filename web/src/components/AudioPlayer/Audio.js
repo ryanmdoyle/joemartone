@@ -10,15 +10,26 @@ class Audio extends React.Component {
     this.playOrPause = this.playOrPause.bind(this);
     this.state = {
       progress: 0,
+      length: 100,
     }
   }
 
   componentDidMount() {
     this.audioRef.current.load();
+    this.setState({
+      length: this.audioRef.current.duration,
+    })
+    console.log('component mounted and length is:', this.state.length)
   }
 
   componentDidUpdate() {
-    console.log(this.props)
+    console.log('props', this.props)
+    console.log('audioRef', this.audioRef)
+    console.log('component updated and length is:', this.state.length)
+  }
+
+  componentWillUnmount() {
+    this.audioRef.current.pause();
   }
 
   playOrPause() {
@@ -43,6 +54,7 @@ class Audio extends React.Component {
         <audio css={css`background-color: white; width: 100%;`} ref={this.audioRef}>
           <source src={`${this.props.audioSrc.asset.url}`} type={this.props.audioSrc.asset.mimeType}></source>
         </audio>
+        <progress min={1} max={100}></progress>
       </div>
     );
   }
