@@ -11,10 +11,10 @@ const AudioList = ({ audioData, setTrack }) => {
     <div css={trackList}>
       <ul>
         {audioData.map(track => (
-          <li key={track.id} onClick={() => { setTrack(track); console.log(track.audioFile.asset.url); }}>
+          <li key={track.id} onClick={() => { setTrack(track) }}>
             <div css={css`display: flex; justify-content: space-between;`}>
               <h4 css={css`margin: 0;`}>{track.audioTitle}</h4>
-              <p>1:54</p>
+              {/* <p>1:54</p> */}
             </div>
             <p css={css`font-size: 1rem;`}>{track.audioDescription}</p>
           </li>

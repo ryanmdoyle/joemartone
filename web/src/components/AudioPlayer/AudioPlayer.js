@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import { playerStyles } from '../../styles/audioPlayer';
-import streamUrl from '../../audio/oddity.mp3';
 import AudioControls from './AudioControls';
 import AudioList from './AudioList';
-import Audio from './Audio';
 
 const AudioPlayer = ({ audioData }) => {
   const [currentTrack, setTrack] = useState({
@@ -21,13 +19,10 @@ const AudioPlayer = ({ audioData }) => {
   return (
     <div css={playerStyles}>
       <AudioControls
-        // FIX
-        streamUrl={currentTrack.audioFile.asset.url}
+        audioSrc={currentTrack.audioFile}
         trackTitle={currentTrack.audioTitle}
         trackSubtitle={currentTrack.audioDescription}
-        preloadType='auto'
       />
-      <Audio audioSrc={currentTrack.audioFile} />
       {/* List of Tracks */}
       <AudioList audioData={audioData} setTrack={setTrack} />
     </div >
