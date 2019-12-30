@@ -6,9 +6,7 @@ import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
 import YoutubeVideo from '../components/YoutubeVideo';
 import AudioPlayer from '../components/AudioPlayer/AudioPlayer';
-
-// audio source
-// import streamUrl from '../audio/oddity.mp3';
+import Gallery from '../components/Gallery';
 
 const videoGallery = css`
   display: flex;
@@ -71,6 +69,7 @@ const Media = () => {
   return (
     <Layout>
       <PageTitle title='Media' />
+      <Gallery />
       {/* <h3>Video</h3>
       <div css={videoGallery}>
         {videos.map(video => (
@@ -80,7 +79,7 @@ const Media = () => {
         ))}
       </div> */}
       <h3>Audio</h3>
-      <AudioPlayer audioData={audio} />
+      {/* <AudioPlayer audioData={audio} /> */}
     </Layout>
   );
 };
