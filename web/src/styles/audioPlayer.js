@@ -53,12 +53,20 @@ const playButton = css`
   border: 2px solid;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
-  padding: 2rem;
+  padding-top: calc((100px / 2) - 1.6rem);
+
+  .svg-container {
+    font-size: 3rem;
+  }
+  
   @media (max-width: 450px) {
     width: 60px;
     height: 60px;
     padding: 1rem;
+    display: flex;
+    .svg-container {
+      font-size: 1.5rem;
+    }
   }
 `;
 
