@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Hamburger from './Hamburger';
 import { css } from '@emotion/core';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 import BurgerNavList from './BurgerNavList';
 
@@ -50,6 +51,18 @@ const HamburgerMenu = () => {
     }
   `;
 
+  const { file: { childImageSharp: { fixed } } } = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "JoeMartoneLogo.png"}) {
+        childImageSharp {
+          fixed(height: 80) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      }
+    }
+    `)
+
   return (
     <div css={burgerWrapper}>
       <div onClick={() => { toggleMenu(!menuActive) }}>
@@ -60,7 +73,13 @@ const HamburgerMenu = () => {
           <Hamburger active={menuActive} />
         </div>
         <div css={logoHolder}>
-          <Link to='/'><img src='http://static1.squarespace.com/static/51a61f4be4b03e3c0127d234/t/55064988e4b0f9921cd75244/1572117101826/?format=1500w' alt='Joe Martone logo' /></Link>
+          <Link to='/'>
+            <Img
+              fixed={fixed}
+              style={{ margin: 'auto', display: 'flex' }}
+            />
+            {/* <img src='http://static1.squarespace.com/static/51a61f4be4b03e3c0127d234/t/55064988e4b0f9921cd75244/1572117101826/?format=1500w' alt='Joe Martone logo' /> */}
+          </Link>
         </div>
         <div css={css`padding-top: 50px;`}>
           <BurgerNavList active={menuActive} />
