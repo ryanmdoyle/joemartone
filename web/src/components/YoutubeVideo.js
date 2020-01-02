@@ -31,17 +31,24 @@ const captionStyle = css`
 `;
 
 const YoutubeVideo = ({ videoId, caption }) => {
-  let iframeRef = React.createRef();
+  // let iframeRef = React.createRef();
 
-  const triggeriFrame = () => {
-    console.log(iframeRef);
-    iframeRef.current.contentWindow.click();
-  }
+  // const triggeriFrame = () => {
+  //   console.log(iframeRef);
+  //   iframeRef.current.contentWindow.click();
+  // }
 
   return (
     <div css={videoWithCaption}>
       <div css={videoContainer}>
-        <iframe style={iframeStyles} src={`https://www.youtube.com/embed/${videoId}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+        <iframe
+          style={iframeStyles}
+          src={`https://www.youtube.com/embed/${videoId}`}
+          title={`${videoId}`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen>
+        </iframe>
       </div>
       <p css={captionStyle}>{caption}</p>
     </div>

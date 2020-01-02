@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/core';
+import Img from "gatsby-image"
 
 const galleryContainerStyles = css`
   width: 100%;
@@ -11,7 +12,7 @@ const galleryContainerStyles = css`
     box-sizing: border-box;
     width: 200px;
     height: 200px;
-    background-color: green;
+    background-color: grey;
     margin: 10px;
   }
 
@@ -30,9 +31,10 @@ const lightbox = css`
   width: 100%;
   height: 100%;
   background-color: rgba(10, 10, 10, 0.95);
+  z-index: 1;
 `;
 
-const Gallery = () => {
+const Gallery = ({ imageData }) => {
   const [lightboxOpen, toggleLightbox] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
@@ -45,26 +47,17 @@ const Gallery = () => {
     console.log(index);
     toggleLightbox(!lightboxOpen);
   }
-
+  console.log('image', imageData[0].imageFile.asset.fixed.src);
   return (
     <>
       <div css={[lightbox, lightboxDisplay]} onClick={() => { toggleLightbox(!lightboxOpen) }} />
+
       <div css={galleryContainerStyles} >
-        <div className='item' onClick={() => { triggerLightbox(1) }} >
-          4
-        </div>
-        <div className='item' onClick={() => { triggerLightbox(2) }} >
-          5
-        </div>
-        <div className='item' onClick={() => { triggerLightbox(3) }} >
-          6
-        </div>
-        <div className='item' onClick={() => { triggerLightbox(4) }} >
-          7
-        </div>
-        <div className='item' onClick={() => { triggerLightbox(5) }} >
-          8
-        </div>
+        {imageData.map(image => (
+          <div onClick={() => { triggerLightbox(1) }} >
+            <Img className='item' fixed={image.imageFile.asset.fixed} />
+          </div>
+        ))}
       </div>
     </>
   );

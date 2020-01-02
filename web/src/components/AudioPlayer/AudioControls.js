@@ -5,7 +5,6 @@ import {
   currentTrackDetails,
   playButton,
 } from '../../styles/audioPlayer';
-import AudioProgressBar from './AudioProgressBar';
 import { IoMdPlay, IoMdPause } from "react-icons/io";
 
 const progressStyles = css`
@@ -80,12 +79,13 @@ class AudioControls extends React.Component {
   }
 
   render() {
+    const audioRefStatus = (this.audioRef.current === null) ? false : this.audioRef.current.paused;
     return (
       <div css={trackCurrentContainer}>
         <div className='buttonContainer'>
           <div css={playButton} onClick={() => { this.playOrPause() }}>
             <div className='svg-container'>
-              {this.audioRef.current.paused ? <IoMdPlay /> : <IoMdPause />}
+              {audioRefStatus ? <IoMdPlay /> : <IoMdPause />}
             </div>
           </div>
           <audio css={css`background-color: white; width: 100%;`} ref={this.audioRef}>

@@ -23,5 +23,16 @@ export default {
       name: 'audioFile',
       type: 'file',
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'audioTitle',
+    },
+    prepare(selection) {
+      const { title } = selection;
+      return {
+        title: `Audio: ${title}`,
+      }
+    }
+  }
 }

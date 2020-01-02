@@ -57,29 +57,43 @@ const Media = () => {
                 audioDescription
                 audioComposer
               }
+              ... on SanityPhotos {
+                id
+                imageFile {
+                  asset {
+                    fixed(width: 300, height: 300) {
+                      src
+                    }
+                  }
+                  caption
+                  attribution
+                }
+              }
             }
           }
         }
       }
     }
   `);
+  const photos = mediaQuery.allSanityMedia.edges[0].node.mediaList;
   const videos = mediaQuery.allSanityMedia.edges[1].node.mediaList;
   const audio = mediaQuery.allSanityMedia.edges[2].node.mediaList;
 
   return (
     <Layout>
       <PageTitle title='Media' />
-      <Gallery />
-      {/* <h3>Video</h3>
+      <h3>Video</h3>
       <div css={videoGallery}>
         {videos.map(video => (
           <div className='video' key={video.id}>
             <YoutubeVideo videoId={video.videoId} caption={video.videoCaption} />
           </div>
         ))}
-      </div> */}
+      </div>
       <h3>Audio</h3>
-      {/* <AudioPlayer audioData={audio} /> */}
+      <AudioPlayer audioData={audio} />
+      <h3>Photos</h3>
+      <Gallery imageData={photos} />
     </Layout>
   );
 };

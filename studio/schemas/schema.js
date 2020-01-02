@@ -10,7 +10,7 @@ import resumeItems from './documents/resumeItems';
 import resume from './documents/resume';
 import media from './documents/media';
 import audio from './documents/audio';
-import photo from './documents/photo';
+import photos from './documents/photos';
 import videos from './documents/videos';
 import instrumentCategories from './documents/instrumentCategories';
 import biography from './documents/biography';
@@ -20,6 +20,7 @@ import contracting from './documents/contracting';
 import richText from './objects/richText';
 import contract from './objects/contract';
 import customFile from './objects/customFile';
+import customImage from './objects/customImage';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -34,7 +35,7 @@ export default createSchema({
     resume,
     media,
     audio,
-    photo,
+    photos,
     videos,
     instrumentCategories,
     richText,
@@ -43,5 +44,6 @@ export default createSchema({
     contracting,
     contract,
     customFile,
+    customImage,
   ])
 })

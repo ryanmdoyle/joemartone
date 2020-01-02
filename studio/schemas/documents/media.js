@@ -22,7 +22,10 @@ export default {
             { type: 'audio' },
           ]
         }
-      ]
+      ],
+      options: {
+        editModal: 'dialog',
+      },
     },
   ]
 }

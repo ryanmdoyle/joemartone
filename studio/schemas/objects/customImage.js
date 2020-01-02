@@ -11,14 +11,16 @@ export default {
       type: 'string',
       title: 'Caption',
       options: {
-        isHighlighted: true // <-- make this field easily accessible
+        isHighlighted: true // <-- make this field easily accessible, false makes hidden behin 'edit' button
       }
     },
     {
-      // Editing this field will be hidden behind an "Edit"-button
       name: 'attribution',
       type: 'string',
       title: 'Attribution',
+      options: {
+        isHighlighted: true
+      }
     }
   ]
 }

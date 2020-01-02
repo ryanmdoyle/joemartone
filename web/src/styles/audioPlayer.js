@@ -80,6 +80,7 @@ const trackList = css`
     margin: 0;
     padding: 1rem 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.025);
     transition: background-color 0.3s;
   }
   li:first-of-type {

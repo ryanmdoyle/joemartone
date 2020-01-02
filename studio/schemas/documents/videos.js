@@ -19,5 +19,16 @@ export default {
       type: 'string',
       description: 'Example: "2ToCuB2M0OI" in the link https://youtu.be/2ToCuB2M0OI'
     },
-  ]
+  ],
+  preview: {
+    select: {
+      title: 'videoCaption',
+    },
+    prepare(selection) {
+      const { title } = selection;
+      return {
+        title: `Video: ${title}`,
+      }
+    }
+  }
 }
