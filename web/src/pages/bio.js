@@ -14,7 +14,7 @@ const Bio = () => {
       }
     }
   `)
-  console.log(bioContent)
+  
   return (
     <Layout>
       <PageTitle title='Biography' />
