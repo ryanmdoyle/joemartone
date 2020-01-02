@@ -64,6 +64,15 @@ const Media = () => {
                     fixed(width: 300, height: 300) {
                       src
                     }
+                    fluid(maxWidth: 900) {
+                      base64
+                      aspectRatio
+                      src
+                      srcSet
+                      srcWebp
+                      srcSetWebp
+                      sizes
+                    }
                   }
                   caption
                   attribution

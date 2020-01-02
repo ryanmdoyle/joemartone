@@ -32,29 +32,52 @@ const lightbox = css`
   height: 100%;
   background-color: rgba(10, 10, 10, 0.95);
   z-index: 1;
+
+  .lightbox-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-container {
+    width: 900px;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const Gallery = ({ imageData }) => {
   const [lightboxOpen, toggleLightbox] = useState(false);
-  const [photoIndex, setPhotoIndex] = useState(0);
+  const [lightboxSrc, setLightboxSrc] = useState({});
 
   let lightboxDisplay = css`
-    display: ${lightboxOpen ? 'block' : 'none'};
+    display: ${lightboxOpen ? 'flex' : 'none'};
   `;
-
-  const triggerLightbox = (index) => {
-    setPhotoIndex(index);
-    console.log(index);
+  
+  //accepts object to inject the lightbox with the appropriate fluid imag source
+  const triggerLightbox = (fluid) => {
+    setLightboxSrc(fluid);
     toggleLightbox(!lightboxOpen);
   }
-  console.log('image', imageData[0].imageFile.asset.fixed.src);
+
   return (
     <>
-      <div css={[lightbox, lightboxDisplay]} onClick={() => { toggleLightbox(!lightboxOpen) }} />
+      <div css={[lightbox, lightboxDisplay]} onClick={() => { toggleLightbox(!lightboxOpen) }} >
+        <div className='lightbox-inner'>
+          <div className='img-container'>
+            <Img fluid={lightboxSrc} />
+          </div>
+        </div>
+      </div>
 
       <div css={galleryContainerStyles} >
         {imageData.map(image => (
-          <div onClick={() => { triggerLightbox(1) }} >
+          <div onClick={() => { triggerLightbox(image.imageFile.asset.fluid) }} >
             <Img className='item' fixed={image.imageFile.asset.fixed} />
           </div>
         ))}
