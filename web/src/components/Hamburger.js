@@ -20,7 +20,7 @@ const Hamburger = ({ active }) => {
   const isActive = active ? 'is-active' : '';
   return (
     <div css={burgerStyles}>
-      <button className={`hamburger hamburger--spin ${isActive}`} type="button">
+      <button className={`hamburger hamburger--spin ${isActive}`} type="button" aria-label='toggle mobile navigation menu'>
         <span className="hamburger-box">
           <span className="hamburger-inner"></span>
         </span>
