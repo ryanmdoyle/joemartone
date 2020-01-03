@@ -16,12 +16,6 @@ const galleryContainerStyles = css`
     margin: 10px;
   }
 
-  @media (max-width: 550px) {
-    .item {
-      width: 100%;
-      height: auto;
-    }
-  }
 `;
 
 const lightbox = css`
