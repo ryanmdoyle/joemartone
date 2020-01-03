@@ -88,7 +88,7 @@ class AudioControls extends React.Component {
               {audioRefStatus ? <IoMdPlay /> : <IoMdPause />}
             </div>
           </div>
-          <audio css={css`background-color: white; width: 100%;`} ref={this.audioRef}>
+          <audio preload='none' css={css`background-color: white; width: 100%;`} ref={this.audioRef}>
             <source src={`${this.props.audioSrc.asset.url}`} type={this.props.audioSrc.asset.mimeType}></source>
           </audio>
         </div>
