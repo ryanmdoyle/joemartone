@@ -4,34 +4,77 @@ import { css } from '@emotion/core';
 
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
-
+import Contract from '../components/Contract';
 import BlockText from '../components/BlockText';
 
 const Contracting = () => {
 
   const contractPageData = useStaticQuery(graphql`
-    query contractQuery {
+    query MyQuery {
       allSanityContracting {
         edges {
           node {
             _rawContractingDescription
             _rawAvailableInstruments
             _rawAvailableEnsembles
+            contracts {
+              contractDescription
+              contractTitle
+              contractPhotos {
+                imageFile {
+                  asset {
+                    fixed(height: 300, width: 300) {
+                      src
+                      srcSet
+                      width
+                      srcWebp
+                      srcSetWebp
+                      height
+                      base64
+                      aspectRatio
+                    }
+                    fluid(maxWidth: 900) {
+                      aspectRatio
+                      base64
+                      sizes
+                      src
+                      srcSet
+                      srcSetWebp
+                      srcWebp
+                    }
+                  }
+                }
+              }
+              contractVideos {
+                videoCaption
+                videoId
+                _id
+              }
+            }
           }
         }
       }
     }
 `);
 
-  console.log(contractPageData.allSanityContracting.edges[0].node);
-  const { _rawContractingDescription, _rawAvailableInstruments, _rawAvailableEnsembles } = contractPageData.allSanityContracting.edges[0].node;
-
+  
+  const { _rawContractingDescription, _rawAvailableInstruments, _rawAvailableEnsembles, contracts } = contractPageData.allSanityContracting.edges[0].node;
+  console.log(contracts);
   return (
     <Layout>
       <PageTitle title='Contracting' />
       <div css={css`a {color: black;text-decoration: underline;}`} >
         <BlockText blocks={_rawContractingDescription.text} />
       </div>
+
+      {contracts.map(contract => (
+        <Contract
+          title={contract.contractTitle}
+          description={contract.contractDescription}
+          photos={contract.contractPhotos}
+          videos={contract.contractVideos}
+        />
+      ))}
 
       <h3>Available Instruments</h3>
       <BlockText blocks={_rawAvailableInstruments.text} />
