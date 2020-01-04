@@ -5,7 +5,7 @@ const PageTitle = ({ title }) => {
   return (
     <>
       <h2 css={css`text-align:center;`}>
-        {title}
+        <title css={css`all: inherit`}>{title}</title>
       </h2>
       <hr></hr>
     </>

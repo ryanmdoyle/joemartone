@@ -12,8 +12,11 @@ const Layout = ({ children, location }) => {
   const mainStyles = css`
     max-width: 1000px;
     margin: 2rem auto;
-    padding: 0 50px;
+    padding: 0 2rem;
     padding-bottom: 125px;
+    @media (max-width: 600px) {
+      padding: 0 1rem;
+    }
   `;
 
   const fixedFooter = css`
@@ -28,7 +31,6 @@ const Layout = ({ children, location }) => {
       <main css={mainStyles}>
         {children}
       </main>
-      {/* {(location.pathname === '/') ? <Footer css={footerOnIndex} /> : <Footer />} */}
       <Footer css={fixedFooter} />
     </>
   )
