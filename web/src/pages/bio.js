@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
+import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
 import BlockText from '../components/BlockText';
@@ -17,6 +18,7 @@ const Bio = () => {
   
   return (
     <Layout>
+      <SEO title='Biography' />
       <PageTitle title='Biography' />
       <BlockText blocks={bioContent.sanityBiography._rawBiographyContent.text} />
     </Layout>

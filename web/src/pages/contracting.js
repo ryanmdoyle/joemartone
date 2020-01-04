@@ -2,6 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { css } from '@emotion/core';
 
+import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
 import Contract from '../components/Contract';
@@ -59,9 +60,10 @@ const Contracting = () => {
 
   
   const { _rawContractingDescription, _rawAvailableInstruments, _rawAvailableEnsembles, contracts } = contractPageData.allSanityContracting.edges[0].node;
-  console.log(contracts);
+
   return (
     <Layout>
+      <SEO title='Contracting' />
       <PageTitle title='Contracting' />
       <div css={css`a {color: black;text-decoration: underline;}`} >
         <BlockText blocks={_rawContractingDescription.text} />

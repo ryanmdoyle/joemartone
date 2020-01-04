@@ -83,7 +83,7 @@ const ContactForm = () => {
           <textarea type='text' name='mssage' required></textarea>
         </div>
         <p css={css`margin-left: 1rem;`}>* required field</p>
-        <input id='submit' type='submit'></input>
+        <input id='submit' type='submit'>Submit</input>
       </form>
   );
 };

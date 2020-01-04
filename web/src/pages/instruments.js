@@ -1,12 +1,14 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
+import SEO from '../components/SEO';
 
 import pageListStyles from '../styles/pageListStyles';
 
 const Instruments = () => {
   return (
     <Layout>
+      <SEO title="Instruments" />
       <PageTitle title={'Instruments'} />
       <h3>Concert Drums</h3>
       <div css={pageListStyles}>

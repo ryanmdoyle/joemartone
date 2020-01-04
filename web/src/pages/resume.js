@@ -2,6 +2,7 @@ import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { css } from '@emotion/core';
 
+import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
 
@@ -39,6 +40,7 @@ const Resume = () => {
   console.log(categories);
   return (
     <Layout>
+      <SEO title='Resume' />
       <PageTitle title='Resume' />
       {categories.map(category => (
         <div key={category.id}>

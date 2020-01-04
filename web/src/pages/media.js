@@ -2,6 +2,7 @@ import React from 'react';
 import { css } from '@emotion/core';
 import { useStaticQuery, graphql } from 'gatsby';
 
+import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
 import YoutubeVideo from '../components/YoutubeVideo';
@@ -70,6 +71,7 @@ const Media = () => {
   
   return (
     <Layout>
+      <SEO title='Media' />
       <PageTitle title='Media' />
       <h3>Video</h3>
       <div css={videoGallery}>

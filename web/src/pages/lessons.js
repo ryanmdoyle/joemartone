@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
+import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
 import BlockText from '../components/BlockText';
@@ -31,6 +32,7 @@ const Lessons = () => {
 
   return (
     <Layout>
+      <SEO title='Lessons' />
       <PageTitle title='Lessons' />
       <BlockText blocks={lessonText} />
     </Layout>
