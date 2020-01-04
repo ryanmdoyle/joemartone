@@ -6,12 +6,12 @@ const form = css`
   padding: 1rem;
   display: flex;
   flex-direction: column;
-  label {
+  label, button {
     font-size: 1.2rem;
     font-weight: 500;
     padding: 0 0 0.4rem 0;
   }
-  input, textarea {
+  input, textarea, button {
     padding: 0.4rem;
     margin-bottom: 0.5rem;
     background-color: white;
@@ -19,7 +19,7 @@ const form = css`
     border: 1px solid #222;
     height: 2rem;
   }
-  input:focus, textarea:focus {
+  input:focus, textarea:focus, button:focus {
     background-color: white;
     transition: background-color 0.5s, height 1s;
     border: 2px solid #333;
@@ -49,8 +49,8 @@ const form = css`
   #submit:hover {
     color: black;
     font-weight: 700;
-      background-color: white;
-      border: 2px solid black;
+    background-color: white;
+    border: 2px solid black;
   }
 `;
 
@@ -83,7 +83,7 @@ const ContactForm = () => {
           <textarea type='text' name='mssage' required></textarea>
         </div>
         <p css={css`margin-left: 1rem;`}>* required field</p>
-        <input id='submit' type='submit'>Submit</input>
+        <button id='submit' type='submit'>Submit</button>
       </form>
   );
 };
