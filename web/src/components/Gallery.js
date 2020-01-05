@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/core';
 import Img from "gatsby-image"
+import PropTypes from "prop-types"
 
-const Gallery = ({ imageData }) => {
+
+const Gallery = ({ imageData, height }) => {
   const [lightboxOpen, toggleLightbox] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState({});
   const [lightboxImageSize, setImageSize] = useState({});
@@ -48,13 +50,14 @@ const Gallery = ({ imageData }) => {
 
       <div css={galleryContainerStyles} >
         {imageData.map(image => {
-          const width = image.imageFile.asset.fluid.aspectRatio * 200;
+          const galleryImgHeight = height || 200;
+          const width = image.imageFile.asset.fluid.aspectRatio * galleryImgHeight;
           return (
             <div onClick={() => { triggerLightbox(image.imageFile.asset.fluid) }} >
               <Img
                 className='img-wrapper'
-                style={{width: `${width}px`}}
-                imgStyle={{height: '200px', width: `${width}px`}}
+                style={{width: `${width}px`, height: `${galleryImgHeight}px`}}
+                imgStyle={{height: `${galleryImgHeight}px`, width: `${width}px`}}
                 fluid={image.imageFile.asset.fluid}
               />
             </div>
@@ -73,7 +76,6 @@ const galleryContainerStyles = css`
 
   .img-wrapper {
     box-sizing: border-box;
-    height: 200px;
     background-color: grey;
     margin: 10px;
   }
@@ -89,5 +91,10 @@ const lightbox = css`
   background-color: rgba(10, 10, 10, 0.95);
   z-index: 1;
 `;
+
+Gallery.propTypes = {
+  imageData: PropTypes.array.isRequired,
+  height: PropTypes.number,
+}
 
 export default Gallery;

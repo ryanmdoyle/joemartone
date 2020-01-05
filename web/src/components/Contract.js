@@ -15,7 +15,7 @@ const Contract = ({title, description, videos, photos}) => {
         )) : null
       }
 
-      {photos.length > 0 ? <Gallery imageData={photos} /> : null}
+      {photos.length > 0 ? <Gallery imageData={photos} height={300} /> : null}
       
     </div>
   );

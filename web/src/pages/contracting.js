@@ -24,16 +24,6 @@ const Contracting = () => {
               contractPhotos {
                 imageFile {
                   asset {
-                    fixed(height: 300, width: 300) {
-                      src
-                      srcSet
-                      width
-                      srcWebp
-                      srcSetWebp
-                      height
-                      base64
-                      aspectRatio
-                    }
                     fluid(maxWidth: 900) {
                       aspectRatio
                       base64
