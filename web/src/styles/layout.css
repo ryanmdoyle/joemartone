@@ -664,6 +664,6 @@ a {
 
 /* CUSTOM PROPERTIES */
 :root {
-  --headerHeight: 100px;
+  --headerHeight: 120px;
   --white: rgba(255, 255, 255, 0.9);
 }

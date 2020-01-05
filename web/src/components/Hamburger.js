@@ -5,7 +5,7 @@ import '../styles/hamburger.css';
 
 const burgerStyles = css`
   position: absolute;
-  top: 10px;
+  top: 30px;
   left: 10px;
   color: white;
   .hamburger {
