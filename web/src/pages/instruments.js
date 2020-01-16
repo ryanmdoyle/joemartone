@@ -1,46 +1,41 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+
+import SEO from '../components/SEO';
 import Layout from '../components/Layout';
 import PageTitle from '../components/PageTitle';
-import SEO from '../components/SEO';
-
-import pageListStyles from '../styles/pageListStyles';
+import BlockText from '../components/BlockText';
 
 const Instruments = () => {
+  const instruments = useStaticQuery(graphql`
+    query instrumentsBlockText {
+      allSanityInstrumentCategories {
+        edges {
+          node {
+            _rawInstrumentList
+            instrumentCategory
+          }
+        }
+      }
+    }
+  `);
+  
+  const instrumentCategories = instruments.allSanityInstrumentCategories.edges;
+
   return (
     <Layout>
       <SEO title="Instruments" />
       <PageTitle title={'Instruments'} />
-      <h3>Concert Drums</h3>
-      <div css={pageListStyles}>
-        <h4>Bass Drums</h4>
-        <ul >
-          <li>Thing 1</li>
-          <li>Thing 2</li>
-          <li>Thing 3</li>
-          <li>Thing 4</li>
-        </ul>
-        <h4>Concert Toms</h4>
-        <ul>
-          <li>Thing 1</li>
-          <li>Thing 2</li>
-          <li>Thing 3</li>
-          <li>Thing 4</li>
-        </ul>
-        <h4>Field Drums</h4>
-        <ul>
-          <li>Thing 1</li>
-          <li>Thing 2</li>
-          <li>Thing 3</li>
-          <li>Thing 4</li>
-        </ul>
-        <h4>Snare Drums</h4>
-        <ul>
-          <li>Thing 1</li>
-          <li>Thing 2</li>
-          <li>Thing 3</li>
-          <li>Thing 4</li>
-        </ul>
-      </div>
+        {instrumentCategories.map(category => {
+          const categoryText = category.node._rawInstrumentList.text;
+          const categoryTitle = category.node.instrumentCategory;
+          return (
+            <>
+              <h4>{categoryTitle}</h4>
+              <BlockText blocks={categoryText} />
+            </>
+          )
+        })}
     </Layout>
   );
 };
