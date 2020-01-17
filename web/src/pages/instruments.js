@@ -1,5 +1,6 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
+import { css } from '@emotion/core';
 
 import SEO from '../components/SEO';
 import Layout from '../components/Layout';
@@ -36,6 +37,7 @@ const Instruments = () => {
             </>
           )
         })}
+    <h4>Please <Link to='/contact' css={css`color: black;text-decoration:underline;`}>contact</Link> about rental inquiries.</h4>
     </Layout>
   );
 };

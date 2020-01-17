@@ -8,6 +8,8 @@ import { MdVideoLibrary } from 'react-icons/md';
 const hiddenDocTypes = listItem => ![
   'resumeCategories',
   'resume',
+  'resumeItems',
+  'instruments',
   'instrumentCategories',
   'media',
   'biography',
@@ -19,24 +21,40 @@ export default () =>
   S.list()
     .title("Content")
     .items([
+      // test grouping
       S.listItem()
-        .title('Resume')
+        .title('Resume Page')
         .child(
-          S.editor()
-            .title('Resume Page')
-            .id('resume')
-            .schemaType('resume')
-            .documentId('resume-config')
-        )
-        .icon(IoIosDocument),
+          S.list()
+          .title('Resume Page Settings')
+          .items([
+            S.listItem()
+              .title('Resume')
+              .child(
+                S.editor()
+                  .title('Resume Page')
+                  .id('resume')
+                  .schemaType('resume')
+                  .documentId('resume-config')
+              )
+              .icon(IoIosDocument),
+            S.listItem()
+              .title('Resume Categories')
+              .child(
+                S.documentTypeList('resumeCategories')
+              )
+              .icon(IoIosDocument),
+            S.listItem()
+              .title('Resume Items')
+              .child(
+                S.documentTypeList('resumeItems')
+              )
+              .icon(IoIosDocument),
+                ])
+              ),
+      // end test grouping
       S.listItem()
-        .title('Resume Categories')
-        .child(
-          S.documentTypeList('resumeCategories')
-        )
-        .icon(IoIosDocument),
-      S.listItem()
-        .title('Instruments')
+        .title('Instrument Categories')
         .child(
           S.documentTypeList('instrumentCategories')
         )

@@ -12,6 +12,7 @@ import media from './documents/media';
 import audio from './documents/audio';
 import photos from './documents/photos';
 import videos from './documents/videos';
+import instruments from './documents/instruments';
 import instrumentCategories from './documents/instrumentCategories';
 import biography from './documents/biography';
 import lessons from './documents/lessons';
@@ -37,6 +38,7 @@ export default createSchema({
     audio,
     photos,
     videos,
+    instruments,
     instrumentCategories,
     richText,
     biography,

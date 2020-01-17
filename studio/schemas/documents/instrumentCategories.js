@@ -12,6 +12,6 @@ export default {
       title: 'Instrument List',
       name: 'instrumentList',
       type: 'richText',
-    }
+    },
   ]
 }
