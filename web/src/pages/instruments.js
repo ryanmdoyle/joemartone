@@ -10,26 +10,28 @@ import BlockText from '../components/BlockText';
 const Instruments = () => {
   const instruments = useStaticQuery(graphql`
     query instrumentsBlockText {
-      allSanityInstrumentCategories {
+      allSanityInstruments {
         edges {
           node {
-            _rawInstrumentList
-            instrumentCategory
+            categoryOrder {
+              instrumentCategory
+              _rawInstrumentList
+            }
           }
         }
       }
     }
   `);
   
-  const instrumentCategories = instruments.allSanityInstrumentCategories.edges;
+  const instrumentCategories = instruments.allSanityInstruments.edges[1].node.categoryOrder;
 
   return (
     <Layout>
       <SEO title="Instruments" />
       <PageTitle title={'Instruments'} />
         {instrumentCategories.map(category => {
-          const categoryText = category.node._rawInstrumentList.text;
-          const categoryTitle = category.node.instrumentCategory;
+          const categoryText = category._rawInstrumentList.text;
+          const categoryTitle = category.instrumentCategory;
           return (
             <>
               <h4>{categoryTitle}</h4>
