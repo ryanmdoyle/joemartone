@@ -17,7 +17,7 @@ export default {
         }
       ],
       options: {
-        editModal: 'fullscreen',
+        editModal: 'popup',
       }
     }
   ]
