@@ -57,12 +57,12 @@ export default () =>
                 S.documentTypeList('resumeCategories')
               )
               .icon(IoIosCopy),
-            S.listItem()
-              .title('Resume Items')
-              .child(
-                S.documentTypeList('resumeItems')
-              )
-              .icon(IoIosCreate),
+            // S.listItem()
+            //   .title('Resume Items')
+            //   .child(
+            //     S.documentTypeList('resumeItems')
+            //   )
+            //   .icon(IoIosCreate),
           ])
         )
         .icon(IoIosDocument),

@@ -12,17 +12,22 @@ export default {
       title: 'Resume Items in Category',
       name: 'resumeCategoryItems',
       type: 'array',
-      of: [
+      of: [ 
         {
-          type: 'reference',
-          to: [
-            { type: 'resumeItems' },
-          ]
-        }
+          type: 'resumeItems',
+          title: 'Resume Item'
+        },
+        // {
+        //   type: 'reference',
+        //   title: 'Reference to Resume Item',
+        //   to: [
+        //     { type: 'resumeItems' },
+        //   ]
+        // }
       ],
-      options: {
-        editModal: 'fullscreen',
-      }
+      // options: {
+      //   editModal: 'fullscreen',
+      // }
     },
   ]
 }
