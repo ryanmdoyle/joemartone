@@ -15,11 +15,6 @@ const footerStyles = css`
 `;
 
 const Footer = (props) => {
-  // const [screenWidth, setScreenWidth] = useState(0);
-  // useEffect(() => {
-  //   window.addEventListener('resize', () => { setScreenWidth(window.innerWidth) })
-  //   console.log(screenWidth);
-  // })
 
   return (
     <footer css={footerStyles} {...props}>

@@ -31,12 +31,6 @@ const captionStyle = css`
 `;
 
 const YoutubeVideo = ({ videoId, caption }) => {
-  // let iframeRef = React.createRef();
-
-  // const triggeriFrame = () => {
-  //   console.log(iframeRef);
-  //   iframeRef.current.contentWindow.click();
-  // }
 
   return (
     <div css={videoWithCaption}>

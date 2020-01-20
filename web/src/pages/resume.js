@@ -17,19 +17,18 @@ const listStyles = css`
 
 const Resume = () => {
   const resumeData = useStaticQuery(graphql`
-    query allResume {
+    query sortedResume {
       allSanityResume {
         edges {
           node {
+            id
             categoryOrder {
-              id
-              resumeCategory
               resumeCategoryItems {
                 resumeItem
                 resumeItemDescription
                 resumeItemLink
-                id
               }
+              resumeCategory
             }
           }
         }
@@ -37,7 +36,7 @@ const Resume = () => {
     }
   `)
   const categories = resumeData.allSanityResume.edges[0].node.categoryOrder;
-  console.log(categories);
+
   return (
     <Layout>
       <SEO title='Resume' />
