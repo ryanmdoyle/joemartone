@@ -17,10 +17,10 @@ For the most part, the studio is arranged by the content on each page of the web
 
 Below is a description of the layout of all the areas of the Studio:
 
-#### Biography Page
+### Biography Page
 Biography Page consists of a rich text area that can be formatted, and will have a gallery following it with images.
 
-#### Resume Page
+### Resume Page
 **Resume Page Category Order**
 Add categories you want on the Resume Page and order them by dragging.
 
@@ -28,19 +28,19 @@ Add categories you want on the Resume Page and order them by dragging.
 Represent the headers along with the items that are on the resume page. Resume items with external links will open in a new tab when the title is clicked.
 They will appear on the page in the format *TITLE - DESCRIPTION*.
 
-#### Instruments Page
+### Instruments Page
 **Instruments Ordering**
 Add instrument categories to page and modify their order.
 
 **Instrument Categories**
 Categories for the instruments page.  Instruments are added using a single rich-text field area that you can edit to have a type of list (numbered, bullet) or have sub-titles for instrument categories where you want more organization/sorting.
 
-#### Lessons Page
+### Lessons Page
 A single area to edit the text that appears on the page, as well as a list of files that can be added to download.
 
 Downloaded files will be opened in a new tab when clicked from the website.
 
-#### Media Page
+### Media Page
 **Media Page Categories and Content**
 The order of the media on the media apge will always be Video, Audio, and then Photos. (I can edit them, but they cannot be changed via the Studio)
 *Adding Content to the media categories:*  In order to add content to the media categories you first need to add the media using the Photos, Audio Files, or Videos area.  The categories for the media page reference the audio, photo, and video from those areas (this allows them to also be used elsewhere on the site if you want).
