@@ -1,5 +1,5 @@
 // import PropTypes from "prop-types"
-import React from "react"
+import React, { useState } from "react"
 import { css } from '@emotion/core';
 
 import SocialLinks from './SocialLinks';
@@ -15,10 +15,16 @@ const footerStyles = css`
 `;
 
 const Footer = (props) => {
+  const [loaded, setLoaded] = useState(false);
+  
+  // delay render for some weird firefox painting
+  window.setTimeout(() => {
+    setLoaded(true);
+  }, 250);
 
   return (
     <footer css={footerStyles} {...props}>
-      <SocialLinks />
+      {loaded && <SocialLinks />}
     </footer>
   )
 }
